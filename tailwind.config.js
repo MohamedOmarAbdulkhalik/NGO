@@ -8,8 +8,14 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.json',
+        './resources/js/**/**/*.vue',
     ],
 
+    darkMode: 'class',
+    
     theme: {
         extend: {
             fontFamily: {
@@ -18,5 +24,10 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        require('tailwindcss-rtl'),
+    ],
+    
+    rtl: true,
 };
