@@ -15,8 +15,8 @@ npm (Node package manager)
 
 Git
 
-Optional (Choose one)
-MySQL >= 5.7 OR SQLite (recommended for development)
+
+MySQL >= 5.7 
 
 Verify Installation
 bash
@@ -63,12 +63,11 @@ php artisan key:generate
 Step 5: Database Setup
 Option A: SQLite (Recommended for Development)
 bash
-# Create SQLite database file
-touch database/database.sqlite
 
-# Update .env file for SQLite
+
+# Update .env file for mySql
 # Edit .env and set:
-DB_CONNECTION=sqlite
+DB_CONNECTION=mysql
 # Remove DB_DATABASE line or comment it out
 Option B: MySQL
 bash
