@@ -15,8 +15,7 @@ npm (Node package manager)
 
 Git
 
-
-MySQL >= 5.7 
+MySQL >= 5.7
 
 Verify Installation
 bash
@@ -34,6 +33,9 @@ npm --version
 
 # Check Git
 git --version
+
+# Check MySQL
+mysql --version
 🚀 Quick Setup (10-15 minutes)
 Step 1: Clone the Repository
 bash
@@ -60,61 +62,62 @@ cp .env.example .env
 
 # Generate application key
 php artisan key:generate
-Step 5: Database Setup
-Option A: SQLite (Recommended for Development)
+Step 5: MySQL Database Setup
+أولاً: إنشاء قاعدة البيانات في MySQL
 bash
+# الدخول إلى MySQL
+mysql -u root -p
 
+# إنشاء قاعدة البيانات
+CREATE DATABASE ngo_website;
 
-# Update .env file for mySql
-# Edit .env and set:
-DB_CONNECTION=mysql
-# Remove DB_DATABASE line or comment it out
-Option B: MySQL
+# الخروج من MySQL
+EXIT;
+ثانياً: تعديل ملف .env لإعدادات MySQL
 bash
-# Create MySQL database manually
-# Then update .env file:
+# افتح ملف .env وعدل الإعدادات التالية:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=ngo_website
 DB_USERNAME=root
-DB_PASSWORD=your_password
+DB_PASSWORD=your_mysql_password
 Step 6: Database Migration & Seeding
 bash
-# Run database migrations
+# تشغيل migrations لإنشاء الجداول في MySQL
 php artisan migrate
 
-# Seed the database with initial data
+# إضافة البيانات الأولية
 php artisan db:seed
 
-# Or run both together
+# أو تشغيل الاثنان معاً
 php artisan migrate --seed
 Step 7: Build Frontend Assets
 bash
-# Build for production
+# بناء assets للإنتاج
 npm run build
 
-# OR for development (with hot reload)
+# أو للتطوير (مع التحديث المباشر)
 npm run dev
 Step 8: Start Development Server
 bash
-# Start Laravel development server
+# تشغيل خادم Laravel للتطوير
 php artisan serve
 
-# The application will be available at:
+# التطبيق سيكون متاح على:
 # http://localhost:8000
 ✅ Verification
 After setup, verify everything is working:
 
-Open your browser to http://localhost:8000
+افتح المتصفح على http://localhost:8000
 
-You should see the NGO website homepage
+يجب أن ترى الصفحة الرئيسية للموقع
 
-Test language switch between English and Arabic
+اختيار تبديل اللغة بين الإنجليزية والعربية
 
-Test dark mode toggle
+اختيار وضع الظلام
 
-Login with admin account (see below)
+تسجيل الدخول بحساب المدير (انظر أدناه)
 
 🔑 Default Admin Account
 Email: admin@example.com
