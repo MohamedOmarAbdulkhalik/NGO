@@ -1,61 +1,125 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+NGO Website - Local Development Setup
+A step-by-step guide to set up and run the NGO website locally for development.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+🛠️ Prerequisites
+Before you begin, ensure you have the following installed on your system:
 
-## About Laravel
+Required Software
+PHP >= 8.1
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Composer (PHP package manager)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Node.js >= 16.x
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+npm (Node package manager)
 
-## Learning Laravel
+Git
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Optional (Choose one)
+MySQL >= 5.7 OR SQLite (recommended for development)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Verify Installation
+bash
+# Check PHP version
+php --version
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# Check Composer
+composer --version
 
-## Laravel Sponsors
+# Check Node.js
+node --version
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# Check npm
+npm --version
 
-### Premium Partners
+# Check Git
+git --version
+🚀 Quick Setup (10-15 minutes)
+Step 1: Clone the Repository
+bash
+# Clone the project
+git clone https://github.com/your-org/ngo-website.git
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+# Navigate to project directory
+cd ngo-website
 
-## Contributing
+# Switch to development branch
+git checkout develop
+Step 2: Install PHP Dependencies
+bash
+# Install Laravel and PHP packages
+composer install
+Step 3: Install JavaScript Dependencies
+bash
+# Install Node.js packages
+npm install --legacy-peer-deps
+Step 4: Environment Configuration
+bash
+# Copy environment file
+cp .env.example .env
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Generate application key
+php artisan key:generate
+Step 5: Database Setup
+Option A: SQLite (Recommended for Development)
+bash
+# Create SQLite database file
+touch database/database.sqlite
 
-## Code of Conduct
+# Update .env file for SQLite
+# Edit .env and set:
+DB_CONNECTION=sqlite
+# Remove DB_DATABASE line or comment it out
+Option B: MySQL
+bash
+# Create MySQL database manually
+# Then update .env file:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=ngo_website
+DB_USERNAME=root
+DB_PASSWORD=your_password
+Step 6: Database Migration & Seeding
+bash
+# Run database migrations
+php artisan migrate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Seed the database with initial data
+php artisan db:seed
 
-## Security Vulnerabilities
+# Or run both together
+php artisan migrate --seed
+Step 7: Build Frontend Assets
+bash
+# Build for production
+npm run build
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# OR for development (with hot reload)
+npm run dev
+Step 8: Start Development Server
+bash
+# Start Laravel development server
+php artisan serve
 
-## License
+# The application will be available at:
+# http://localhost:8000
+✅ Verification
+After setup, verify everything is working:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Open your browser to http://localhost:8000
+
+You should see the NGO website homepage
+
+Test language switch between English and Arabic
+
+Test dark mode toggle
+
+Login with admin account (see below)
+
+🔑 Default Admin Account
+Email: admin@example.com
+
+Password: password
+
+Role: Administrator
