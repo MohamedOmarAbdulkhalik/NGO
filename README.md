@@ -15,8 +15,7 @@ npm (Node package manager)
 
 Git
 
-Optional (Choose one)
-MySQL >= 5.7 OR SQLite (recommended for development)
+MySQL >= 5.7
 
 Verify Installation
 bash
@@ -34,14 +33,17 @@ npm --version
 
 # Check Git
 git --version
+
+# Check MySQL
+mysql --version
 🚀 Quick Setup (10-15 minutes)
 Step 1: Clone the Repository
 bash
 # Clone the project
-git clone https://github.com/your-org/ngo-website.git
+git clone https://github.com/MohamedOmarAbdulkhalik/NGO.git
 
 # Navigate to project directory
-cd ngo-website
+cd NGO
 
 # Switch to development branch
 git checkout develop
@@ -60,32 +62,35 @@ cp .env.example .env
 
 # Generate application key
 php artisan key:generate
-Step 5: Database Setup
-Option A: SQLite (Recommended for Development)
-bash
-# Create SQLite database file
-touch database/database.sqlite
+Step 5: MySQL Database Setup
+First: Create Database in MySQL
 
-# Update .env file for SQLite
-# Edit .env and set:
-DB_CONNECTION=sqlite
-# Remove DB_DATABASE line or comment it out
-Option B: MySQL
 bash
-# Create MySQL database manually
-# Then update .env file:
+# Login to MySQL
+mysql -u root -p
+
+# Create database
+CREATE DATABASE ngo_website;
+
+# Exit MySQL
+EXIT;
+Second: Configure .env for MySQL
+
+Edit the .env file with these settings:
+
+text
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=ngo_website
 DB_USERNAME=root
-DB_PASSWORD=your_password
+DB_PASSWORD=your_mysql_password
 Step 6: Database Migration & Seeding
 bash
-# Run database migrations
+# Run migrations to create tables in MySQL
 php artisan migrate
 
-# Seed the database with initial data
+# Seed with initial data
 php artisan db:seed
 
 # Or run both together
