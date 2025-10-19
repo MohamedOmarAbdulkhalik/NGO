@@ -1,24 +1,19 @@
-NGO Website - Local Development Setup
+# NGO Website - Local Development Setup
 A step-by-step guide to set up and run the NGO website locally for development.
 
-🛠️ Prerequisites
+## 🛠️ Prerequisites
 Before you begin, ensure you have the following installed on your system:
 
-Required Software
-PHP >= 8.1
+### Required Software
+- **PHP >= 8.1**
+- **Composer** (PHP package manager)
+- **Node.js >= 16.x**
+- **npm** (Node package manager)
+- **Git**
+- **MySQL >= 5.7**
 
-Composer (PHP package manager)
-
-Node.js >= 16.x
-
-npm (Node package manager)
-
-Git
-
-MySQL >= 5.7
-
-Verify Installation
-bash
+### Verify Installation
+```bash
 # Check PHP version
 php --version
 
@@ -63,19 +58,20 @@ cp .env.example .env
 # Generate application key
 php artisan key:generate
 Step 5: MySQL Database Setup
-أولاً: إنشاء قاعدة البيانات في MySQL
+First: Create Database in MySQL
 bash
-# الدخول إلى MySQL
+# Login to MySQL
 mysql -u root -p
 
-# إنشاء قاعدة البيانات
+# Create database
 CREATE DATABASE ngo_website;
 
-# الخروج من MySQL
+# Exit MySQL
 EXIT;
-ثانياً: تعديل ملف .env لإعدادات MySQL
-bash
-# افتح ملف .env وعدل الإعدادات التالية:
+Second: Configure .env for MySQL
+Edit the .env file with these settings:
+
+text
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -84,40 +80,40 @@ DB_USERNAME=root
 DB_PASSWORD=your_mysql_password
 Step 6: Database Migration & Seeding
 bash
-# تشغيل migrations لإنشاء الجداول في MySQL
+# Run migrations to create tables in MySQL
 php artisan migrate
 
-# إضافة البيانات الأولية
+# Seed with initial data
 php artisan db:seed
 
-# أو تشغيل الاثنان معاً
+# Or run both together
 php artisan migrate --seed
 Step 7: Build Frontend Assets
 bash
-# بناء assets للإنتاج
+# Build for production
 npm run build
 
-# أو للتطوير (مع التحديث المباشر)
+# OR for development (with hot reload)
 npm run dev
 Step 8: Start Development Server
 bash
-# تشغيل خادم Laravel للتطوير
+# Start Laravel development server
 php artisan serve
 
-# التطبيق سيكون متاح على:
+# The application will be available at:
 # http://localhost:8000
 ✅ Verification
 After setup, verify everything is working:
 
-افتح المتصفح على http://localhost:8000
+Open your browser to http://localhost:8000
 
-يجب أن ترى الصفحة الرئيسية للموقع
+You should see the NGO website homepage
 
-اختيار تبديل اللغة بين الإنجليزية والعربية
+Test language switch between English and Arabic
 
-اختيار وضع الظلام
+Test dark mode toggle
 
-تسجيل الدخول بحساب المدير (انظر أدناه)
+Login with admin account (see below)
 
 🔑 Default Admin Account
 Email: admin@example.com
