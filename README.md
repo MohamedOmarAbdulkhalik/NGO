@@ -40,10 +40,10 @@ mysql --version
 Step 1: Clone the Repository
 bash
 # Clone the project
-git clone https://github.com/your-org/ngo-website.git
+git clone https://github.com/MohamedOmarAbdulkhalik/NGO.git
 
 # Navigate to project directory
-cd ngo-website
+cd NGO
 
 # Switch to development branch
 git checkout develop
