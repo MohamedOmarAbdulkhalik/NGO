@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\HomePage;
 
 use App\Http\Controllers\Controller;
 use App\Models\HeroSection;
