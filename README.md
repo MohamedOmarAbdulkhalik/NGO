@@ -39,7 +39,7 @@ mysql --version
 🚀 Quick Setup (10-15 minutes)
 Step 1: Clone the Repository
 bash
-# Clone the project
+# Clone the project or Download the zip file
 git clone https://github.com/MohamedOmarAbdulkhalik/NGO.git
 
 # Navigate to project directory
