@@ -1,19 +1,24 @@
-# NGO Website - Local Development Setup
+NGO Website - Local Development Setup
 A step-by-step guide to set up and run the NGO website locally for development.
 
-## 🛠️ Prerequisites
+🛠️ Prerequisites
 Before you begin, ensure you have the following installed on your system:
 
-### Required Software
-- **PHP >= 8.1**
-- **Composer** (PHP package manager)
-- **Node.js >= 16.x**
-- **npm** (Node package manager)
-- **Git**
-- **MySQL >= 5.7**
+Required Software
+PHP >= 8.1
 
-### Verify Installation
-```bash
+Composer (PHP package manager)
+
+Node.js >= 16.x
+
+npm (Node package manager)
+
+Git
+
+MySQL >= 5.7
+
+Verify Installation
+bash
 # Check PHP version
 php --version
 
@@ -59,6 +64,7 @@ cp .env.example .env
 php artisan key:generate
 Step 5: MySQL Database Setup
 First: Create Database in MySQL
+
 bash
 # Login to MySQL
 mysql -u root -p
@@ -69,6 +75,7 @@ CREATE DATABASE ngo_website;
 # Exit MySQL
 EXIT;
 Second: Configure .env for MySQL
+
 Edit the .env file with these settings:
 
 text
